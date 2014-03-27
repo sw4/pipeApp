@@ -5,9 +5,9 @@ pipeApp.controller("pipeController", ['$scope', 'pipeFactory', function ($scope,
         Define the list of available pipes with defaults, check local storage
         and if supported and populated for the app, load in the load last session
     */
-    $scope.pipes = [
-        {title: "Business News Feeds", pipeId: "DqsF_ZG72xGLbes9l7okhQ"},
+    $scope.pipes = [    
         {title: "Aggregated News Alerts", pipeId: "fELaGmGz2xGtBTC3qe5lkA"},
+        {title: "Business News Feeds", pipeId: "DqsF_ZG72xGLbes9l7okhQ"},
         {title: "Broad News Search", pipeId: "uLI4XFfU3BGd3kpin0artA"}
     ];
     if (localStorage && localStorage.pipeAppPipes) {
