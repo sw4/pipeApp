@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/sw4/pipeApp" version="0.0.1">
   <name>pipeApp</name>
-  <description>Angular Bases Yahoo Pipe Reader</description>
+  <description>Angular Based Yahoo Pipes Reader</description>
   <content src="index.html" />
   <icon src="icon.png" />
   <author>S.Wheeler</author>
