@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="pipeApp" version="0.0.1">
+  <name>pipeApp</name>
+  <description>Simple Yahoo Pipe Reader</description>
+  <content src="index.html" />
+  <icon src="icon.png" />
+  <author>S.Wheeler</author>
+</widget>

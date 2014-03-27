@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>pipeApp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">                
+        <!-- Meyer CSS Reset-->  
+        <link href="css/reset.css" rel="stylesheet">        
+        <!-- Bootstrap CSS-->  
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- FontAwesome CSS -->
+        <link href="css/font-awesome.min.css" rel="stylesheet"> 
+        <!-- pipeApp CSS -->
+        <link href="css/styles.css" rel="stylesheet">         
+    </head>
+    <body data-ng-app="pipeApp" data-ng-controller="pipeController">        
+        <div class='row'>
+            <div class='col-md-3'>
+                <header class="form-inline">                  
+                    <input id='pipeIdInput' class='form-control' type="text" autocomplete="off" placeholder="Enter Pipe Id.." data-ng-model="pipeId" ng-keypress="resolvePipe($event, true)" /><i id='pipeIdSearch' class="fa fa-search btn btn-default" ng-click="resolvePipe($event, false)" ></i>            
+                </header>
+                <section>     
+                    <div id='pipeNotify'>
+                        <div class="warning">
+                            <h4>Pipe ID could not be resolved</h4>                            
+                            <p>
+                                An error was encountered when attempting to identify a valid Pipe pipe with the ID:
+                            </p>  
+                            <p><b><a ng-href='http://pipes.yahoo.com/pipes/pipe.info?_id={{pipeId}}' target="_blank">{{pipeId}}</a></b>
+                            </p>                            
+                        </div>
+                    </div>                 
+                    <ul id='pipeFeeds'>                    
+                        <li data-ng-repeat="pipe in pipes track by $index" data-ng-click="loadPipe(pipe.pipeId, $event)">
+                            {{pipe.title}}<i data-ng-click="removePipe($index, $event)" class="pull-right fa fa-trash-o"></i>
+                        </li>                
+                    </ul>
+                </section>
+            </div>
+            <div class='col-md-9'>            
+                <header>  
+                    <div data-ng-show="items.length > 0">
+                        <input id='pipeFilterInput' class='form-control' type="text" placeholder="Filter Items.." data-ng-model="filterPipeItems" />
+                        <span class="badge pull-right" data-ng-show="items.length > 0">
+                            {{(items | filter:filterPipeItems).length+(filterPipeItems && " matches out of "+items.length)}} items found
+                        </span>
+                    </div>
+                </header>                                    
+                <section>
+                    <div data-ng-show="loading" id='pipeStatus'>
+                        <i class="fa fa-refresh fa-spin"></i>
+                        <p>
+                            Loading Pipe...
+                        </p>
+                    </div>
+                    <ul data-ng-hide="loading" id='pipeItems'>                    
+                        <li data-ng-repeat="item in items | filter:filterPipeItems"  data-ng-click="viewItem(item.link)">                    
+                            <h5>{{item.title}} <i class="fa fa-external-link"></i></h5>                            
+                            <p class="text-left">{{item.description}}</p>                    
+                            <span class="small"><i class="fa fa-clock-o"></i> {{item.pubDate}}</span>
+                        </li>                
+                    </ul>     
+                </section>
+            </div>           
+        </div>
+        <!-- jQuery -->
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <!-- underscore -->
+        <script src="js/underscore.min.js"></script>   
+        <!-- HTML5 Element Support -->
+        <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+            <script src="js/respond.min.js"></script>
+        <![endif]-->    
+        <!-- Bootstrap -->    
+        <script src="js/bootstrap.min.js"></script>    
+        <!-- Angular.js -->
+        <script src="js/angular.min.js"></script>
+        <!-- pipeApp Model/Controllers (Angular) -->
+        <script src="js/script.js"></script>
+    </body>
+</html>
