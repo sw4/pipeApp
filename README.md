@@ -4,4 +4,4 @@ pipeApp
 Angular Based Yahoo Pipes Reader
 
 
-Visit the site page here: https://rawgithub.com/sw4/pipeApp/master/js
+Visit the site page here: http://sw4.github.io/pipeApp/
